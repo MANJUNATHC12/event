@@ -3,9 +3,13 @@
     <title></title>
 
     <link href="index.css" rel="stylesheet" type="text/css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 
 </head>
-<body id="for">
+<body class="register">
+
 
     <br>
     <br>
@@ -14,24 +18,32 @@
     <br>
     <br>
     <br><br><br><br>
+    <H1><CENTER><span style="color: orange;">MC-EVENTS     </span><span style="color:#007bff;">      REGISTER FORM</span></CENTER></H1>    '
+    <br><br><br><br><br>
+    <form action="register" method="post" id="myForm">
+      <fieldset style="height: 600px;">
+        <br><br>
+        <img src="signin logo.png" alt="" style="height: 100px;color:whitesmoke;">
+        <br><br>
+        <div class="sig" style="font-size: x-large; color:black;">
+        Name:<input type="text" name="name" placeholder="enter your name"style="height: 30px; width: 300px; font-weight: bold;font-size: large;"><br><br><br>
+        Phone:<input type="number" name="phone" placeholder="enter your last name"style="height: 30px; width: 300px; font-weight: bold;font-size: large;"><br><br><br>
+        Email:<input type="email" name="email" placeholder="enter your email-id"   style="height: 30px; width: 300px; font-weight: bold; font-size: large;"><br><br><br>
+        Password:<input type="password" name="pass" placeholder="enter password"    style="height: 30px; width: 290px; font-weight: bold;font-size: large"><br><br><br>
+        Conf-Password:<input type="password" name="cpass" placeholder="Re-enter password"    style="height: 30px; width: 250px; font-weight: bold;font-size: large"><br><br><br>
+        <input type="submit" name="register" value="sigin" style="height: 25px; width: 150px; background-color:#007bff;  text-align: center; font-size: medium; font-weight:bold; text-transform: uppercase;">
 
-  <H1><CENTER style="color: burlywood;">SIGN UP</CENTER></H1>
-  <form>
-      <fieldset>
-        <legend style="color: cadetblue;">SIGNUP</legend>
-        <br><br>
-        <img src="signin logo.png" alt="" style="height: 100px;color: wheat;">
-        <br><br>
-        <div class="sig" style="font-size: x-large;">
-        First name:<input type="text" name="Firstname" placeholder="enter your name"style="height: 35px; width: 250px; border-radius: 10px;"><br><br>
-        Last name:<input type="text" name="lastname" placeholder="enter your last name"style="height: 35px; width: 250px; border-radius: 10px;"><br><br>
-        Email:<input type="text" name="Email"style="height: 35x; width: 250px; border-radius: 10px;"><br><br>
-        Password<input type="password" name="password"style="height: 35px; width: 250px; border-radius: 10px;"><br><br>
-        Gender       <input type="radio"name="gender">Male     <input type="radio"name="gender">Female<br><br>
-        Address:<textarea  rows="5" cols="50"> </textarea><br><br>
       </div>
       </fieldset>
   </form>
+
+
+  <!-- <form id="myForm">
+    <input type="text" name="username" id="username" placeholder="Username" required>
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    <input type="submit" value="Submit">
+  </form> -->
+  
 
 </body>
 </html>
