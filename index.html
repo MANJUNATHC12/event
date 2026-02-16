@@ -1,320 +1,358 @@
-<!DOCTYPE html>
-<head>
-    <title>mc event</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link href="index.css" rel="stylesheet" type="text/css">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <FontAwesomeIcon icon="fa-solid fa-toggle-on" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+/* ================= GLOBAL ================= */
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  font-family: 'Questrial', sans-serif;
+}
 
+body{
+  background:#f5f7fa;
+  transition:0.4s;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+/* ================= HEADER / NAVBAR ================= */
 
+.banner1{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.75);
+}
 
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 6%;
+  height:70px;
+}
 
-</head>
-<body>
+.logo{
+  width:120px;
+}
 
-      <!--------------------------------------HOME-------------------------------->
-      
-      <!-- <nav>
-        <a href="#">logo</a>
-        <label for="toggler"><i class="fa fa-bars"></i></label>
-        <input type="checkbox" id="toggler" name="">
+.navbar ul{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
 
-        <div class="menu">
-          <ul class="list">
-            <li><a href="#"></a>home</li>
-            <li><a href="#"></a>aboutus</li>
-            <li><a href="#"></a>services</li>
-            <li><a href="#"></a>gallery</li>
-            <li><a href="#"></a>contact us</li>
-          </ul>
-        </div>
-      </nav>
-       -->
-      
-      
-      <header>
-          <div class="banner1">
-            <div class="navbar">
-              <img src="mcevents.png" class="logo">
-              <label for="toggler"><i class="fa fa-bars"></i></label>
-              <ul>
-                <li><a href="#">home</a></li>
-                <li><a href="#aboutus">aboutus</a></li>
-                <li><a href="#event">services</a></li>
-                <li><a href="#gallery">gallery</a></li>
-                <li><a href="#contactus">contact us</a></li>
-                <li><a href="login.html"><button style="height: 35px; width:100px; border-radius: 8px; background-color:#007bff; color: white;">Login</button></a></li>
-                <li><a href="sigin.html"><button style="height: 35px; width:100px; border-radius: 8px; background-color:#007bff; color: white;">Register</button></a></li>
+.navbar ul li{
+  list-style:none;
+}
 
-                <li><input type="button" class="mode" value="MODE"> </li>
-              </ul>
-              
-              </div>
-          </div>
-            </header>
+.navbar ul li a{
+  text-decoration:none;
+  color:white;
+  font-size:15px;
+  position:relative;
+}
 
-              <div class="banner">
-                <div class="home"> 
-                  <h3>WE ARE HERE TO</h3>
-                  <h1>PLANNING EVENTS</h1>
-                  <h3 id="h3">FOR YOU</h3>
-                  <h4>Everything you need to craft impactful event experiences1
-                     all while staying technologically relevant, now and always.</h4>
+.navbar ul li a::after{
+  content:"";
+  width:0%;
+  height:2px;
+  background:#00d9ff;
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  transition:0.3s;
+}
 
-                     <div class="buttons">
-                      <div class="Aboutus">
-                        <a href="#aboutus"><input type="button" name="button" value="About us" ></a>
-                      </div>
-                      <div class="getmore">
-                        <a href="#gallery"><button>GET MORE</button></a>
-                      </div>
-                     </div>
-                </div>
-                  
-              </div>
-              
-            </div>
-          </div>
- 
-         <br><br><br><br><br><br>
-      <!--------------------------------------HOME-------------------------------->
+.navbar ul li a:hover::after{
+  width:100%;
+}
 
+/* ================= HERO SECTION ================= */
 
-        <!---------------------------------------AboutUs---------------------------------------------->
-        <section id="aboutus">       
-           <div class="aboutus">
-          <div class="container">
-            <div class="content-section">
-              <div class="title">
-                <h1 style="color: black;">About Us</h1>
-              </div>
-              <div class="content">
-                <h3>Our event planning company has been serving businesses for 35 years.</h3>
+.banner{
+  height:100vh;
+  padding-top:70px;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+  url("ev1.avif") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
 
-                 <p> While we can do all types of events, company picnics, product launch parties, business anniversaries and other corporate events are our specialty.  We take pride in knowing that our approach to planning events has one sole focus – your business.</p>
-                  <p>Our goal is to be the only event planning company you’ll ever need. Our event planners express a unique passion for helping people create and celebrate the moments that truly matter.</p>
-                   <div class="button">
-                    <a href="">Read More</a>
-                   </div>
-              </div>
-              <div class="social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>    
-              </div>
-            </div>
-            <div class="image-section">
-              <img src="ev1.avif">
-            </div>
-          </div>
-        </div>
-        <br><br><br><br><br><br><br><br><br><br></section>
-        <br><br><br><br>
+.home h1{
+  font-size:65px;
+  letter-spacing:3px;
+}
 
+.home h3{
+  color:#00d9ff;
+}
 
-          <!---------------------------------------AboutUs---------------------------------------------->
+.home h4{
+  margin-top:15px;
+  line-height:1.6;
+}
 
+.home input,
+.home button{
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#00d9ff,#007bff);
+  color:white;
+  margin:15px 10px;
+  transition:0.4s;
+}
 
-<!------------------------------------services------------------------------------------------------->
+.home input:hover,
+.home button:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #00d9ff;
+}
 
-<section id="event">
-  <br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <h1 style="text-align: center; color: darkcyan;">OUR SERVICES</h1>
-  <div class="card-container">
-    <div class="card">
-      <img src="birthday.jpg">
-      <div class="card-container">
-        <h3>BIRTHDAY EVENTS</h3>
-        <P>A birthday celebration is occasion for joy, laughter, and connection, and the perfect birthday party invitation kicks all of this off in style.
-           Whether it’s a milestone birthday, a themed or surprise party, or a simple, intimate gathering, crafting the right birthday invitation wording is essential to make your guests feel excited and eager to attend. 
-           Read on for the best tips, ideas, and examples to help you create impactful invitations, whether fun or formal, and be sure to explore our wonderful assortment of birthday invitations online.
-            And don’t miss our personalized party supplies, either, from festive bunting banners to hit-of-the-party selfie frames.</P>
-          <div class="but">
-          <a href="Birthaday.html" class="btn">Read More</a>
-        </div>
-      </div>
-    </div>
+/* ================= ABOUT ================= */
 
-    <div class="card">
-      <img src="wedding.jpg">
-      <div class="card-container">
-        <h3>WEDDING EVENTS</h3>
-        <P>As the big day approaches, it's time to think about the smaller details of your wedding, like your programs.
-           Seriously, what do you write in those? Here's a little comparison to help you decide what to include in a wedding program to make it unique to you. 
-           Think of your wedding programs as playbills for a Broadway show. Not only are they fun keepsakes from the event, but they also give the audience (your guests) helpful insight into the performance (your ceremony). 
-           Read all about the essential details you should incorporate into a wedding program as well as some fun additions to entertain your guests.</P>
-          <div class="but1">
-          <a href="Birthaday.html" class="btn">Read More</a>
-        </div>
-      </div>
-    </div>
+.aboutus .container{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  padding:80px 10%;
+}
 
-    <div class="card">
-      <img src="Anni.jpg">
-      <div class="card-container">
-        <h3>ANNIVERSARIES EVENTS</h3>
-        <P>You shouldn’t be celebrating work anniversaries five days or weeks after the event. If possible, you should be celebrating the day of or earlier (if you group work anniversary celebrations in some way.) You should keep all of these important dates on your office calendar so you can keep an eye on upcoming anniversaries.
+.image-section img{
+  width:450px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
 
-          If you are a forgetful person, you might also want to make a pre-reminder about a month or two before each anniversary date. Setting a pre-reminder will give you ample time to work with their manager and get the perfect gift.</P>
-          <div class="but2">
-          <a href="Birthaday.html" class="btn">Read More</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="music.jpg">
-      <div class="card-container">
-        <h3>MUSIC EVENTS</h3>
-        <P>Whether you’re promoting a tour or a series of events, having a smart link where people can view all ticket links in one place is a great way to boost ticket sales. Smart links also encourage people interested in a particular event to check out other similar events that they may not have heard of.
+.content-section .button a{
+  padding:12px 25px;
+  background:#007bff;
+  color:white;
+  border-radius:25px;
+  text-decoration:none;
+}
 
-          Additionally, advanced smart link services like AmplifyLink typically have integrated analytics and insights. This means you can easily track which link is the most popular, and through which platform fans find your events. All this data will undoubtedly make it easier to make targeted marketing decisions.</P>
-          <div class="but3">
-          <a href="Birthaday.html" class="btn">Read More</a>
-        </div>
-      </div>
-    </div>
+.social i{
+  font-size:20px;
+  margin:10px;
+  color:#007bff;
+  transition:0.3s;
+}
 
-  </div>
-</section>
+.social i:hover{
+  transform:scale(1.3);
+  color:black;
+}
 
-<!------------------------------------services------------------------------------------------------->
+/* ================= SERVICES ================= */
 
+.card-container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+  padding:60px 5%;
+}
 
-<!------------------------------------gallery------------------------------------------------------->
-<br><br><br><br>
-<section id="gallery">
-  <h1 style="text-align: center; color:teal ;">GALLERY</h1>
-  <br><br><br><br>
-<div class="gallery">
-  <img src="g1.jpg" alt="">
-  <img src="g2.jpg" alt="">
-  <img src="gw1.jpg" alt="">
-  <img src="gw2.jpg" alt="">
-  <img src="ga1.jpg" alt="">
-  <img src="ga2.jpeg" alt="">
-  <img src="gm1.jpg" alt="">
-  <img src="DJ.jpg" alt="">
-</div>
-</section>
+.card{
+  width:300px;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+  transition:0.4s;
+}
 
-<!------------------------------------gallery------------------------------------------------------->
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
 
+.card:hover{
+  transform:translateY(-15px);
+  box-shadow:0 0 25px #00d9ff;
+}
 
- <!-------------------------------------------------contact us--------------------------------->
- <section id="contactus">
-  <div class="contact-form">
-  <form>
-    <h2>Contact Us</h2>
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" name="name" required="">
-    </div>
-    <div class="form-group">
-      <label for="name">Email:</label>
-      <input type="text" name="email" required="">
-    </div>
-    <div class="form-group">
-      <label for="name">Meassage:</label>
-      <textarea name="message" rows="4" required></textarea>
-    </div>
-    <button class="btn">Submit</button>
-  </form>
-  <div class="contact-content">
-    <h2>Our Address</h2>
-    <p>Bangalore,india</p>
-    <p>+91-9380047670</p>
-    <p>Email: mcevents@gmail.com</p>
-  </div>
- </div>
-</section>
- 
- <!-------------------------------------------------contact us--------------------------------->
+.card h3{
+  text-align:center;
+  margin:15px 0;
+}
 
-         
-<!-----------------------------------------------------footer-------------------------------------------------->
+.card p{
+  padding:0 15px;
+  text-align:justify;
+}
 
-       <footer>
-          <div class="footer-col">
-          <h4>products</h4>
-          <ul>
-            <li><a href="#">html</a></li>
-            <li><a href="#">css</a></li>
-            <li><a href="#">bootstrap</a></li>
-          </ul>
-        </div>
+.card .btn{
+  display:block;
+  margin:15px auto;
+  width:150px;
+  border-radius:30px;
+  background:#007bff;
+  color:white;
+}
 
-        <div class="footer-col">
-          <h4>network</h4>
-          <ul>
-            <li><a href="#">technology</a></li>
-            <li><a href="#">science</a></li>
-            <li><a href="#">business</a></li>
-            <li><a href="#">professional</a></li>
-            <li><a href="#">API</a></li>          
-          </ul>
-        </div>
+/* ================= GALLERY ================= */
 
-        <div class="footer-col">
-          <h4>company</h4>
-          <ul>
-            <li><a href="#">home</a></li>
-            <li><a href="#aboutus">about us</a></li>
-            <li><a href="#event">services</a></li>
-            <li><a href="#gallery">gallery</a></li>
-            <li><a href="#contactus">contact us</a></li>
-          </ul>
-        </div>
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:60px 8%;
+}
 
-        <div class="footer-col">
-          <h4>follow us</h4>
-          <div class="links">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-       </footer>
+.gallery img{
+  width:100%;
+  border-radius:15px;
+  transition:0.4s;
+}
 
-       
-       <script>
-        let mode = document.querySelector(".mode");
-        let crrmode = "light";
+.gallery img:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px black;
+}
 
-        mode.addEventListener("click",()=>{
-          if(crrmode === "light"){
-            crrmode = "dark";
-            document.querySelector("body").style.backgroundColor = "black";
-            document.querySelector("body").style.color = "white";
-          }
-          else {
-            crrmode = "light";
-            document.querySelector("body").style.backgroundColor = "white";
-            document.querySelector("body").style.color = "black";
-          }
-        });
+/* ================= CONTACT ================= */
 
-        
-       </script>
-       
+.contact-form{
+  display:flex;
+  flex-wrap:wrap;
+  gap:50px;
+  justify-content:center;
+  padding:80px 10%;
+}
 
+form{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+  width:400px;
+}
 
+form input,
+form textarea{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
 
+form .btn{
+  margin-top:15px;
+  width:100%;
+  border-radius:30px;
+  background:#007bff;
+  color:white;
+}
 
- 
-       
+.contact-content{
+  line-height:2;
+}
 
+/* ================= FOOTER ================= */
 
-      
-</body>
+footer{
+  background:#111;
+  color:white;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  padding:60px 10%;
+}
 
-</html>
+.footer-col ul li{
+  list-style:none;
+  margin:8px 0;
+}
+
+.footer-col ul li a{
+  text-decoration:none;
+  color:#bbb;
+}
+
+.footer-col ul li a:hover{
+  color:#00d9ff;
+}
+
+.links i{
+  margin:10px;
+  transition:0.3s;
+}
+
+.links i:hover{
+  transform:scale(1.3);
+  color:#00d9ff;
+}
+
+/* ================= MODE BUTTON ================= */
+
+.mode{
+  padding:6px 18px;
+  border-radius:20px;
+  border:none;
+  background:#00d9ff;
+  color:white;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .navbar ul{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:black;
+    flex-direction:column;
+    text-align:center;
+    display:none;
+    padding:20px 0;
+  }
+
+  label i{
+    color:white;
+    font-size:24px;
+  }
+
+  .home h1{
+    font-size:38px;
+  }
+
+  .home h4{
+    font-size:14px;
+    padding:0 15px;
+  }
+
+  .aboutus .container{
+    flex-direction:column;
+    text-align:center;
+    padding:50px 5%;
+  }
+
+  .image-section img{
+    width:100%;
+  }
+
+  .card{
+    width:100%;
+  }
+
+  .contact-form{
+    flex-direction:column;
+    padding:50px 5%;
+  }
+
+  form{
+    width:100%;
+  }
+
+}
