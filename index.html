@@ -327,9 +327,28 @@
       document.body.classList.remove("light-mode");
     }
   });
+
+
+  let mode = document.querySelector(".mode");
+  let crrmode = "light";
+
+  mode.addEventListener("click",()=>{
+    if(crrmode === "light"){
+      crrmode = "dark";
+      document.querySelector("body").style.backgroundColor = "black";
+      document.querySelector("body").style.color = "white";
+    }
+    else {
+      crrmode = "light";
+      document.querySelector("body").style.backgroundColor = "white";
+      document.querySelector("body").style.color = "black";
+    }
+  });
+          
 </script>
        
 
 </body>
 </html>
+
 
