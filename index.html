@@ -314,26 +314,22 @@
        </footer>
 
        
-       <script>
-        let mode = document.querySelector(".mode");
-        let crrmode = "light";
+      <script>
+  let mode = document.querySelector(".mode");
+  let crrmode = "dark";
 
-        mode.addEventListener("click",()=>{
-          if(crrmode === "light"){
-            crrmode = "dark";
-            document.querySelector("body").style.backgroundColor = "black";
-            document.querySelector("body").style.color = "white";
-          }
-          else {
-            crrmode = "light";
-            document.querySelector("body").style.backgroundColor = "white";
-            document.querySelector("body").style.color = "black";
-          }
-        });
-
-        
-       </script>
+  mode.addEventListener("click", () => {
+    if (crrmode === "dark") {
+      crrmode = "light";
+      document.body.classList.add("light-mode");
+    } else {
+      crrmode = "dark";
+      document.body.classList.remove("light-mode");
+    }
+  });
+</script>
        
 
 </body>
 </html>
+
