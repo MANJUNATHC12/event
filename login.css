@@ -1,0 +1,251 @@
+/* ============================================================
+   MC EVENTS — Login Page CSS (Glassmorphism)
+   Same dark theme as main site
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #050510;
+  color: #F0F0F5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+  padding: 40px 20px;
+}
+
+/* ── Animated Orbs ── */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOrb 22s ease-in-out infinite alternate;
+}
+body::before {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #7DF9C8, transparent 70%);
+  top: -100px; left: -100px;
+}
+body::after {
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, #A78BFA, transparent 70%);
+  bottom: -80px; right: -80px;
+  animation-duration: 28s;
+  animation-delay: -8s;
+}
+
+@keyframes floatOrb {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(30px, -40px); }
+  100% { transform: translate(-20px, 30px); }
+}
+
+/* ── Back Button ── */
+.back {
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  z-index: 100;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: #F0F0F5;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.back:hover {
+  border-color: #7DF9C8;
+  color: #7DF9C8;
+  background: rgba(125,249,200,0.08);
+}
+
+/* ── Page Title ── */
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+}
+h1 span:first-child  { color: #F472B6 !important; }
+h1 span:last-child   { color: #7DF9C8 !important; }
+
+/* ── Form Wrapper ── */
+form {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+}
+
+fieldset {
+  border: none;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Login Image ── */
+.log {
+  margin-bottom: 24px;
+}
+.log img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(125,249,200,0.4);
+  box-shadow: 0 0 24px rgba(125,249,200,0.2);
+  display: block;
+}
+
+/* Fallback if image missing */
+.log img[src="login1.png "] {
+  background: linear-gradient(135deg, #7DF9C8, #A78BFA);
+  content: '👤';
+}
+
+/* ── Labels ── */
+fieldset p {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: rgba(240,240,245,0.6) !important;
+  margin-bottom: 8px !important;
+  align-self: flex-start !important;
+}
+
+/* ── Inputs ── */
+fieldset input[type="text"],
+fieldset input[type="password"] {
+  width: 100% !important;
+  height: auto !important;
+  padding: 12px 16px !important;
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  border-radius: 12px !important;
+  color: #F0F0F5 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.9rem !important;
+  outline: none !important;
+  transition: all 0.2s !important;
+  margin-bottom: 20px !important;
+}
+fieldset input[type="text"]::placeholder,
+fieldset input[type="password"]::placeholder {
+  color: rgba(240,240,245,0.25) !important;
+}
+fieldset input[type="text"]:focus,
+fieldset input[type="password"]:focus {
+  border-color: #7DF9C8 !important;
+  background: rgba(125,249,200,0.05) !important;
+  box-shadow: 0 0 0 3px rgba(125,249,200,0.08) !important;
+}
+
+/* ── Login Button ── */
+fieldset input[type="button"] {
+  width: 100% !important;
+  height: auto !important;
+  padding: 13px !important;
+  background: linear-gradient(135deg, #7DF9C8, #A78BFA) !important;
+  border: none !important;
+  border-radius: 100px !important;
+  color: #050510 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  cursor: pointer !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+  margin-bottom: 20px !important;
+}
+fieldset input[type="button"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(125,249,200,0.35) !important;
+}
+
+/* ── Checkbox Row ── */
+fieldset input[type="checkbox"] {
+  accent-color: #7DF9C8;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+/* ── Links & small text ── */
+fieldset a {
+  color: #7DF9C8 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+fieldset a:hover { color: #A78BFA !important; }
+
+fieldset u { text-decoration: underline; }
+
+/* Override inline color styles on links */
+fieldset a u { color: inherit !important; }
+
+/* Text nodes (Remember me, don't have account) */
+fieldset {
+  font-size: 0.85rem;
+  color: rgba(240,240,245,0.55);
+  line-height: 1.8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  fieldset {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+  .back {
+    top: 14px;
+    left: 14px;
+    font-size: 0.7rem;
+    padding: 8px 16px;
+  }
+}
