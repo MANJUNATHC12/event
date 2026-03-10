@@ -1,251 +1,265 @@
-/* ============================================================
-   MC EVENTS — Login Page CSS (Glassmorphism)
-   Same dark theme as main site
-   ============================================================ */
+ ===== MC-EVENTS LOGIN PAGE STYLES ===== */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
 
+/* ---- Reset & Base ---- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background-color: #050510;
-  color: #F0F0F5;
+/* ---- Body Background ---- */
+body#for {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
-  position: relative;
+  font-family: 'DM Sans', sans-serif;
+  background-color: #0a0a12;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 123, 255, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255, 165, 0, 0.10) 0%, transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 60px,
+      rgba(255,255,255,0.02) 60px,
+      rgba(255,255,255,0.02) 61px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(255,255,255,0.02) 60px,
+      rgba(255,255,255,0.02) 61px
+    );
   padding: 40px 20px;
 }
 
-/* ── Animated Orbs ── */
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 0;
-  animation: floatOrb 22s ease-in-out infinite alternate;
-}
-body::before {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, #7DF9C8, transparent 70%);
-  top: -100px; left: -100px;
-}
-body::after {
-  width: 450px; height: 450px;
-  background: radial-gradient(circle, #A78BFA, transparent 70%);
-  bottom: -80px; right: -80px;
-  animation-duration: 28s;
-  animation-delay: -8s;
+/* ---- Page Title ---- */
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 4px;
+  margin-bottom: 32px;
+  text-shadow: 0 0 40px rgba(0, 123, 255, 0.4);
+  animation: fadeDown 0.7s ease both;
 }
 
-@keyframes floatOrb {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(30px, -40px); }
-  100% { transform: translate(-20px, 30px); }
+h1 center {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-/* ── Back Button ── */
+h1 span:first-child {
+  color: orange;
+  text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+}
+
+h1 span:last-child {
+  color: #007bff;
+  text-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+/* ---- Back Button ---- */
 .back {
   position: fixed;
   top: 20px;
-  left: 24px;
-  z-index: 100;
+  left: 20px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 165, 0, 0.5);
+  color: orange;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 9px 20px;
-  border-radius: 100px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  color: #F0F0F5;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 9px 18px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  z-index: 100;
 }
+
 .back:hover {
-  border-color: #7DF9C8;
-  color: #7DF9C8;
-  background: rgba(125,249,200,0.08);
+  background: orange;
+  color: #0a0a12;
+  border-color: orange;
+  box-shadow: 0 0 16px rgba(255, 165, 0, 0.45);
 }
 
-/* ── Page Title ── */
-h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  font-weight: 800;
-  letter-spacing: -1px;
-  text-align: center;
-  margin-bottom: 36px;
-  position: relative;
-  z-index: 1;
-}
-h1 span:first-child  { color: #F472B6 !important; }
-h1 span:last-child   { color: #7DF9C8 !important; }
-
-/* ── Form Wrapper ── */
+/* ---- Form Card ---- */
 form {
-  position: relative;
-  z-index: 1;
   width: 100%;
   max-width: 420px;
+  animation: fadeUp 0.7s ease 0.15s both;
 }
 
 fieldset {
-  border: none;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 24px;
-  padding: 40px 36px;
-  box-shadow: 0 8px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px 36px 32px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 8px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeUp 0.8s ease forwards;
+  gap: 10px;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Login Image ── */
+/* ---- Login Image ---- */
 .log {
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
+
 .log img {
   width: 80px;
   height: 80px;
-  border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(125,249,200,0.4);
-  box-shadow: 0 0 24px rgba(125,249,200,0.2);
+  border-radius: 50%;
+  border: 2.5px solid #007bff;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
   display: block;
 }
 
-/* Fallback if image missing */
-.log img[src="login1.png "] {
-  background: linear-gradient(135deg, #7DF9C8, #A78BFA);
-  content: '👤';
-}
-
-/* ── Labels ── */
+/* ---- Labels ---- */
 fieldset p {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 1px !important;
-  text-transform: uppercase !important;
-  color: rgba(240,240,245,0.6) !important;
-  margin-bottom: 8px !important;
-  align-self: flex-start !important;
+  align-self: flex-start;
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.82rem !important;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 6px;
+  margin-bottom: 2px;
 }
 
-/* ── Inputs ── */
+/* ---- Inputs ---- */
 fieldset input[type="text"],
 fieldset input[type="password"] {
   width: 100% !important;
-  height: auto !important;
-  padding: 12px 10px !important;
-  background: rgba(255,255,255,0.05) !important;
-  border: 1px solid rgba(255,255,255,0.15) !important;
-  border-radius: 12px !important;
-  color: #F0F0F5 !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 0.9rem !important;
-  outline: none !important;
-  transition: all 0.2s !important;
-  margin-bottom: 20px !important;
+  height: 44px !important;
+  padding: 0 14px;
+  border-radius: 8px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
+
 fieldset input[type="text"]::placeholder,
 fieldset input[type="password"]::placeholder {
-  color: rgba(240,240,245,0.25) !important;
+  color: rgba(255, 255, 255, 0.3);
 }
+
 fieldset input[type="text"]:focus,
 fieldset input[type="password"]:focus {
-  border-color: #7DF9C8 !important;
-  background: rgba(125,249,200,0.05) !important;
-  box-shadow: 0 0 0 3px rgba(125,249,200,0.08) !important;
+  border-color: #007bff;
+  background: rgba(0, 123, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.18);
 }
 
-/* ── Login Button ── */
+/* ---- Login Button ---- */
 fieldset input[type="button"] {
   width: 100% !important;
-  height: auto !important;
-  padding: 13px !important;
-  background: linear-gradient(135deg, #7DF9C8, #A78BFA) !important;
-  border: none !important;
-  border-radius: 100px !important;
-  color: #050510 !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 0.9rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.5px !important;
-  cursor: pointer !important;
-  transition: transform 0.2s, box-shadow 0.2s !important;
-  margin-bottom: 20px !important;
-}
-fieldset input[type="button"]:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 12px 32px rgba(125,249,200,0.35) !important;
+  height: 46px !important;
+  margin-top: 14px;
+  background: linear-gradient(135deg, #007bff 0%, #0055cc 100%) !important;
+  color: #fff;
+  border: none;
+  border-radius: 8px !important;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem !important;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
 }
 
-/* ── Checkbox Row ── */
+fieldset input[type="button"]:hover {
+  opacity: 0.9;
+  box-shadow: 0 6px 28px rgba(0, 123, 255, 0.55);
+  transform: translateY(-1px);
+}
+
+fieldset input[type="button"]:active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ---- Divider row: checkbox + links ---- */
 fieldset input[type="checkbox"] {
-  accent-color: #7DF9C8;
+  accent-color: #007bff;
   width: 15px;
   height: 15px;
   cursor: pointer;
-  margin-right: 6px;
+  vertical-align: middle;
+  margin-right: 4px;
 }
 
-/* ── Links & small text ── */
+/* Wrap the remember-me line and forgot/signup links */
+fieldset > *:not(input[type="text"]):not(input[type="password"]):not(input[type="button"]):not(.log):not(p) {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Text nodes around checkbox */
+fieldset {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.84rem;
+}
+
+/* ---- Links ---- */
 fieldset a {
-  color: #7DF9C8 !important;
-  text-decoration: none !important;
+  color: #007bff;
+  text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
-fieldset a:hover { color: #A78BFA !important; }
 
-fieldset u { text-decoration: underline; }
-
-/* Override inline color styles on links */
-fieldset a u { color: inherit !important; }
-
-/* Text nodes (Remember me, don't have account) */
-fieldset {
-  font-size: 0.85rem;
-  color: rgba(240,240,245,0.55);
-  line-height: 1.8;
+fieldset a u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: inherit;
 }
 
-/* ── Responsive ── */
+fieldset a:hover {
+  color: orange;
+}
+
+/* ---- Animations ---- */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Responsive ---- */
 @media (max-width: 480px) {
   fieldset {
-    padding: 28px 22px;
-    border-radius: 20px;
+    padding: 30px 20px 24px;
   }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
   .back {
-    top: 14px;
-    left: 14px;
-    font-size: 0.7rem;
-    padding: 8px 16px;
+    font-size: 0.65rem;
+    padding: 7px 12px;
   }
 }

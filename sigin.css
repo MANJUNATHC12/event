@@ -1,0 +1,288 @@
+/* ============================================================
+   MC EVENTS — login.css  (Register Page)
+   Matches the main site's dark/gold luxury aesthetic
+   ============================================================ */
+
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ===== VARIABLES ===== */
+:root {
+  --bg-primary:     #0a0a0f;
+  --bg-secondary:   #111118;
+  --bg-card:        #16161f;
+  --accent:         #c9a84c;
+  --accent-light:   #e8c96e;
+  --accent-glow:    rgba(201, 168, 76, 0.18);
+  --text-primary:   #f0ede8;
+  --text-secondary: #9e9b94;
+  --text-muted:     #5e5c57;
+  --border:         rgba(201, 168, 76, 0.2);
+  --border-subtle:  rgba(255, 255, 255, 0.07);
+  --shadow:         0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ===== BODY ===== */
+body.register {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 80% 50%, rgba(201, 168, 76, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(120, 80, 200, 0.04) 0%, transparent 50%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Decorative rings (matching main site hero) */
+body.register::before {
+  content: '';
+  position: fixed;
+  top: 8%; right: 4%;
+  width: 300px; height: 300px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  opacity: 0.35;
+  animation: rotateSlow 30s linear infinite;
+  pointer-events: none;
+}
+
+body.register::after {
+  content: '';
+  position: fixed;
+  top: 14%; right: 8%;
+  width: 190px; height: 190px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: rotateSlow 20s linear infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ===== BACK BUTTON ===== */
+.back {
+  position: fixed;
+  top: 1.2rem;
+  left: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 100;
+}
+
+.back::before {
+  content: '←';
+  font-size: 0.9rem;
+}
+
+.back:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* ===== PAGE TITLE (H1) ===== */
+H1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.2rem;
+  text-align: center;
+  animation: fadeUp 0.8s ease both;
+}
+
+H1 span:first-child  { color: var(--accent) !important; font-style: italic; }
+H1 span:last-child   { color: var(--text-primary) !important; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== FORM ===== */
+form#myForm {
+  width: 100%;
+  max-width: 500px;
+  animation: fadeUp 0.9s 0.1s ease both;
+}
+
+/* ===== FIELDSET ===== */
+fieldset {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2rem;
+  height: auto !important;             /* override inline height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  box-shadow: var(--shadow);
+  transition: border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+fieldset::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+fieldset:hover {
+  border-color: var(--border);
+}
+
+/* Logo image inside fieldset */
+fieldset > img {
+  width: 80px;
+  height: 80px !important;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-secondary);
+  margin-bottom: 1.8rem;
+  display: block;
+}
+
+/* ===== .sig DIV — input group ===== */
+.sig {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: unset !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Labels (the text nodes before each input) */
+.sig {
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted) !important;
+  line-height: 2.4;
+}
+
+/* ===== ALL INPUTS ===== */
+.sig input[type="text"],
+.sig input[type="number"],
+.sig input[type="email"],
+.sig input[type="password"] {
+  width: 100% !important;
+  height: 46px !important;
+  padding: 0 1rem !important;
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 8px !important;
+  color: var(--text-primary) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  outline: none !important;
+  margin-bottom: 1rem !important;
+  display: block !important;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.3s !important;
+}
+
+.sig input[type="text"]::placeholder,
+.sig input[type="number"]::placeholder,
+.sig input[type="email"]::placeholder,
+.sig input[type="password"]::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.sig input[type="text"]:focus,
+.sig input[type="number"]:focus,
+.sig input[type="email"]:focus,
+.sig input[type="password"]:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+  background: #1a1a24 !important;
+}
+
+/* ===== "do you have an account" text + link ===== */
+.sig a {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sig a:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.sig input[type="submit"] {
+  width: 100% !important;
+  height: 48px !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  background: var(--accent) !important;
+  color: #0a0a0f !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  font-family: 'DM Sans', sans-serif !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.3s, transform 0.25s, box-shadow 0.3s !important;
+  display: block !important;
+}
+
+.sig input[type="submit"]:hover {
+  background: var(--accent-light) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px var(--accent-glow) !important;
+}
+
+.sig input[type="submit"]:active {
+  transform: translateY(0) !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 560px) {
+  fieldset { padding: 2rem 1.4rem 1.8rem; }
+  H1 { font-size: 1.3rem; margin-bottom: 1.5rem; }
+  .back { top: 0.8rem; left: 0.8rem; font-size: 0.65rem; padding: 0.4rem 0.9rem; }
+}
