@@ -194,7 +194,8 @@ fieldset > img {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   /* color: var(--text-muted) !important; */
- color: var(--text-primary) !important;
+ /* color: var(--text-primary) !important; */
+   color:#ffffff;
   line-height: 2.4;
 }
 
